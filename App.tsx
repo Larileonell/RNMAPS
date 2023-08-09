@@ -27,7 +27,11 @@ export default function App() {
       timeInterval: 1000,
       distanceInterval: 1
     }, (response)=>{
-      setLocation(response)// MUDAR LOCALIZAÇÃO
+      setLocation(response)
+      mapref.current?.animateCamera({
+        pitch:70,
+        center: response.coords
+      })   // MUDAR LOCALIZAÇÃO
     })
    },[])
   return (
